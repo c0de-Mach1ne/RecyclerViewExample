@@ -12,14 +12,14 @@ class UserService {
     init {
         val faker = Faker.instance()
         IMAGES.shuffle()
-        val generatedUsers = (1..100).map {
+        users = (1..100).map {
             User(
                 id = it.toLong(),
                 name = faker.name().name(),
                 company = faker.company().name(),
                 photo = IMAGES[it % IMAGES.size]
             )
-        }
+        }.toMutableList()
     }
 
     private fun getUsers(): List<User> {
@@ -43,12 +43,12 @@ class UserService {
         notifyChanges()
     }
 
-    private fun addListener(listener: UserListener){
+    fun addListener(listener: UserListener){
         listeners.add(listener)
         listener.invoke(users)
     }
 
-    private fun removeListener(listener: UserListener){
+    fun removeListener(listener: UserListener){
         listeners.remove(listener)
     }
 
