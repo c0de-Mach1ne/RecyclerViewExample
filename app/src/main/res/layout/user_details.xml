@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_userName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@id/iv_userPhoto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_userPhoto"
+        tools:text="Murad Ahmedov" />
+
+    <TextView
+        android:id="@+id/tv_userCompany"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="2"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/iv_userPhoto"
+        app:layout_constraintStart_toStartOf="@id/tv_userName"
+        app:layout_constraintTop_toBottomOf="@id/tv_userName"
+        tools:text="Google Inc." />
+
+    <ImageView
+        android:id="@+id/iv_userPhoto"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_user_photo" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tv_userCompany, iv_userPhoto" />
+
+    <TextView
+        android:id="@+id/tv_titleDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier"
+        tools:text="About company" />
+
+    <TextView
+        android:id="@+id/tv_companyDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toStartOf="@id/iv_companyLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_companyLogo"
+        app:layout_constraintBottom_toBottomOf="@id/iv_companyLogo"
+        tools:text="About companyAbout companyAbout companyAbout companyAbout company"
+        />
+
+    <ImageView
+        android:id="@+id/iv_companyLogo"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_titleDescription"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        tools:src="@drawable/ic_user_photo"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

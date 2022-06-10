@@ -17,7 +17,8 @@ class UserService {
                 id = it.toLong(),
                 name = faker.name().name(),
                 company = faker.company().name(),
-                photo = IMAGES[it % IMAGES.size]
+                photo = IMAGES[it % IMAGES.size],
+                logo = faker.company().logo(),
             )
         }.toMutableList()
     }
@@ -43,16 +44,16 @@ class UserService {
         notifyChanges()
     }
 
-    fun addListener(listener: UserListener){
+    fun addListener(listener: UserListener) {
         listeners.add(listener)
         listener.invoke(users)
     }
 
-    fun removeListener(listener: UserListener){
+    fun removeListener(listener: UserListener) {
         listeners.remove(listener)
     }
 
-    private fun notifyChanges(){
+    private fun notifyChanges() {
         listeners.forEach { it.invoke(users) }
     }
 
