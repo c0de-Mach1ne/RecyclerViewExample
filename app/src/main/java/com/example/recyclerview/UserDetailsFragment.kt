@@ -15,7 +15,7 @@ import com.github.javafaker.Faker
 class UserDetailsFragment : Fragment() {
 
     private lateinit var binding: UserDetailsBinding
-    val faker: Faker = Faker.instance()
+    private val faker: Faker = Faker.instance()
 
     private val user: User
         get() = requireArguments().getSerializable(ARG_USER) as User
@@ -41,7 +41,7 @@ class UserDetailsFragment : Fragment() {
                 .load(user.photo)
                 .circleCrop()
                 .into(binding.ivUserPhoto)
-        }else{
+        } else {
             Glide.with(binding.ivUserPhoto.context).clear(binding.ivUserPhoto)
             binding.ivUserPhoto.setImageResource(R.drawable.ic_user_photo)
         }
@@ -49,12 +49,6 @@ class UserDetailsFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_USER = "ARG_USER"
-
-        fun newInstance(user: User): UserDetailsFragment {
-            val fragment = UserDetailsFragment()
-            fragment.arguments = bundleOf(ARG_USER to user)
-            return fragment
-        }
+        const val ARG_USER = "ARG_USER"
     }
 }
